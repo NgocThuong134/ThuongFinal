@@ -10,7 +10,11 @@ require("./db/mongodb");
 require("dotenv").config({ path: path.join(__dirname, ".env") });
 
 const server = require("http").Server(app);
-const io = require("socket.io")(server);
+const io = require("socket.io")(server, {
+  cors: {
+    origin: '*'
+  }
+});
 
 const port = process.env.PORT || 8001;
 
